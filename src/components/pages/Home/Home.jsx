@@ -11,7 +11,6 @@ const Home = () => {
   const { register, handleSubmit, setValue } = useForm();
   const actionRef = useRef("");
   const imgInputRef = useRef(null);
-  // const downloadRef = useRef(null);
   const [img, setImg] = useState(null);
   const [data, setData] = useState(null);
 
@@ -65,7 +64,14 @@ const Home = () => {
 
   useEffect(() => {
     console.log(data);
-  }, data);
+    if(data){
+      const txt = document.getElementById("text-area");
+      if(actionRef.current === "encrypt"){
+        txt.value = `Key : ${data.text}`;
+      }
+      else  txt.value = `Message : ${data.text}`;
+    }
+  }, [data]);
 
   const process = [
     {
@@ -103,11 +109,10 @@ const Home = () => {
             <div onClick={handleUploadClick} className="img-overlay w-full h-full absolute top-0 left-0 cursor-pointer"></div>
 
             <input onChange={(e) => handleFileChange(e)} ref={imgInputRef} accept="image/*" className='img-input hidden' type="file" />
-            {/* <a className='hidden' ref={downloadRef} download={"Secret"} href={data && `data.image`}></a> */}
 
           </div>
 
-          <textarea {...register('text', { required: true })} className='w-full bg-[#0000002c] backdrop-blur-lg border-b-2 border-zinc-500 outline-none p-3 resize-none rounded-[5px_5px_0px_0px] text-[#dedede]' rows={5} placeholder='Write your message🤫 / key🔑 here!' autoFocus value={data && `Key : ${data.text}`}></textarea>
+          <textarea id='text-area' {...register('text', { required: true })} className='w-full bg-[#0000002c] backdrop-blur-lg border-b-2 border-zinc-500 outline-none p-3 resize-none rounded-[5px_5px_0px_0px] text-[#dedede]' rows={5} placeholder='Write your message🤫 / key🔑 here!' autoFocus></textarea>
 
           <div className="actions mt-5">
             <button onClick={() => (actionRef.current = 'decrypt')} type='submit' className='py-2.5 w-[10rem] rounded-lg bg-[#b3b3b3] shadow-2xl shadow-[#8a8a8a] font-medium text-black mr-3'>Retrieve Message</button>
