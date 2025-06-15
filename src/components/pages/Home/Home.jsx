@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import {useForm} from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import axios from "axios";
 import imgIcon from "../../../assets/image.png"
 import encrypt from '../../../assets/encrypt.png'
@@ -8,18 +8,23 @@ import retrieve from '../../../assets/retrieve.png'
 import selectedImg from '../../../assets/image2.png'
 import Process from './Process'
 const Home = () => {
-  const { register, handleSubmit, setValue} = useForm();
+  const { register, handleSubmit, setValue } = useForm();
   const actionRef = useRef("");
   const imgInputRef = useRef(null);
-  const downloadRef = useRef(null);
+  // const downloadRef = useRef(null);
   const [img, setImg] = useState(null);
-  const [ data, setData ] = useState(null);
+  const [data, setData] = useState(null);
 
   const handleUploadClick = () => {
-    if(data){
-      downloadRef.current.click();
+    if (data) {
+      const link = document.createElement("a");
+      link.href = data.image;
+      link.download = "encrypted.png";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
-    else{
+    else {
       imgInputRef.current.click();
     }
   }
@@ -46,14 +51,14 @@ const Home = () => {
 
     const baseUrl = import.meta.env.VITE_BACKEND_API;
 
-    try{
+    try {
       const response = await axios.post(`${baseUrl}/stegx`, formData, {
-        headers : {
-          'Content-Type' : 'multipart/form-data'
+        headers: {
+          'Content-Type': 'multipart/form-data'
         },
       });
       setData(response.data);
-    }catch(err){
+    } catch (err) {
       console.error('Upload failed:', err);
     }
   }
@@ -98,7 +103,7 @@ const Home = () => {
             <div onClick={handleUploadClick} className="img-overlay w-full h-full absolute top-0 left-0 cursor-pointer"></div>
 
             <input onChange={(e) => handleFileChange(e)} ref={imgInputRef} accept="image/*" className='img-input hidden' type="file" />
-            <a className='hidden' ref={downloadRef} download href={data && `data.image`}></a>
+            {/* <a className='hidden' ref={downloadRef} download={"Secret"} href={data && `data.image`}></a> */}
 
           </div>
 
