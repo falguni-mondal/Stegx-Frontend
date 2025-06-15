@@ -63,7 +63,7 @@ const Home = () => {
   }
 
   useEffect(() => {
-    console.log(data);
+    // console.log(data);
     if(data){
       const txt = document.getElementById("text-area");
       if(actionRef.current === "encrypt"){
