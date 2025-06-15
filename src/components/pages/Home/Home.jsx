@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {useForm} from 'react-hook-form';
 import axios from "axios";
 import imgIcon from "../../../assets/image.png"
@@ -57,6 +57,10 @@ const Home = () => {
       console.error('Upload failed:', err);
     }
   }
+
+  useEffect(() => {
+    console.log(data);
+  }, data);
 
   const process = [
     {
