@@ -31,9 +31,9 @@ const Home = () => {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      const allowedTypes = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
+      const allowedTypes = ["image/png"];
       if (!allowedTypes.includes(file.type)) {
-        alert("Only JPG, JPEG, PNG, and WEBP files are allowed.");
+        alert("Only PNG files are allowed.");
         return;
       }
       setValue('image', e.target.files);
