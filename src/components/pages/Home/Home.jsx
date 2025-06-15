@@ -94,7 +94,7 @@ const Home = () => {
             <div onClick={handleUploadClick} className="img-overlay w-full h-full absolute top-0 left-0 cursor-pointer"></div>
 
             <input onChange={(e) => handleFileChange(e)} ref={imgInputRef} accept="image/*" className='img-input hidden' type="file" />
-            <a ref={downloadRef} download={"Secret.png"} href={data && `data.image`}></a>
+            <a className='hidden' ref={downloadRef} download href={data && `data.image`}></a>
 
           </div>
 
