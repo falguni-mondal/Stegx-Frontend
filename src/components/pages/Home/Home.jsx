@@ -90,17 +90,19 @@ const Home = () => {
       img: retrieve
     },
   ]
+
+
   return (
-    <section className='homepage w-full pt-28 px-10 grid grid-cols-6 gap-16'>
+    <section className='homepage w-full pt-10 lg:pt-28 px-10 grid grid-cols-1 grid-rows-3 lg:grid-cols-6 lg:grid-rows-1 gap-16'>
       {/* LEFT SECTION */}
-      <div className="heading-container col-span-2 text-[#dedede]">
+      <div className="heading-container lg:col-span-2 text-[#dedede]">
         <h1 className='heading-txt text-[5rem] w-full leading-none tracking-tighter'>Talk in Pixels Not in Words.</h1>
         <p className='heading-paragraph text-[1.2rem] leading-tight tracking-tighter mt-6'>Securely encode your confidential messages within images, ensuring privacy, stealth, and easy retrieval with our advanced steganography technology—fast, reliable, and undetectable.</p>
         <button className='py-2 w-[8rem] mt-8 rounded-lg border-[#dedede] border font-bold whiteglow-hover transition-all duration-500'>Learn More</button>
       </div>
 
       {/* MIDDLE SECTION */}
-      <div className="service-container neue-txt col-span-2">
+      <div className="service-container neue-txt lg:col-span-2">
         <form onSubmit={handleSubmit(submitHandler)} className='flex flex-col items-center'>
           <div className="img-upload-bg whiteglow-hover duration-500 transition-all w-[200px] h-[200px] border-2 border-[#dedede] border-dashed rounded-3xl mt-8 text-[#dedede] mb-10 flex justify-center items-center relative">
             <img src={img ? selectedImg : imgIcon} className='w-[90%] h-[90%] object-cover' alt="" />
@@ -114,7 +116,7 @@ const Home = () => {
 
           <textarea id='text-area' {...register('text', { required: true })} className='w-full bg-[#0000002c] backdrop-blur-lg border-b-2 border-zinc-500 outline-none p-3 resize-none rounded-[5px_5px_0px_0px] text-[#dedede]' rows={5} placeholder='Write your message🤫 / key🔑 here!' autoFocus></textarea>
 
-          <div className="actions mt-5">
+          <div className="actions mt-5 flex lg:block">
             <button onClick={() => (actionRef.current = 'decrypt')} type='submit' className='py-2.5 w-[10rem] rounded-lg bg-[#b3b3b3] shadow-2xl shadow-[#8a8a8a] font-medium text-black mr-3'>Retrieve Message</button>
             <button onClick={() => (actionRef.current = 'encrypt')} type='submit' className='py-2.5 w-[10rem] rounded-lg bg-[#7220ff] shadow-2xl shadow-[#491cb3] font-medium text-[#dedede]'>Hide Message</button>
           </div>
@@ -122,7 +124,7 @@ const Home = () => {
       </div>
 
       {/* RIGHT SECTION */}
-      <div className="overview-container col-span-2 flex flex-col gap-10 mt-10">
+      <div className="overview-container lg:col-span-2 flex flex-col gap-10 mt-10">
         {
           process.map(({ heading, desc, img }) => (
             <Process key={heading} heading={heading} desc={desc} img={img} />
