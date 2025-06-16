@@ -6,13 +6,17 @@ import encrypt from '../../../assets/encrypt.png'
 import hide from '../../../assets/hide.png'
 import retrieve from '../../../assets/retrieve.png'
 import selectedImg from '../../../assets/image2.png'
+import loading from '../../../assets/loader.gif'
 import Process from './Process'
+
+
 const Home = () => {
   const { register, handleSubmit, setValue } = useForm();
   const actionRef = useRef("");
   const imgInputRef = useRef(null);
   const [img, setImg] = useState(null);
   const [data, setData] = useState(null);
+  const [load, setLoad] = useState(false);
 
   const handleUploadClick = () => {
     if (data) {
@@ -42,6 +46,7 @@ const Home = () => {
   }
 
   const submitHandler = async (data) => {
+    setLoad(true);
     const formData = new FormData();
 
     formData.append('image', img);
@@ -56,9 +61,13 @@ const Home = () => {
           'Content-Type': 'multipart/form-data'
         },
       });
+      if(response.data !== data){
+        setLoad(false);
+      }
       setData(response.data);
     } catch (err) {
-      console.error('Upload failed:', err);
+      alert('Upload Failed');
+      setLoad(false);
     }
   }
 
@@ -93,7 +102,11 @@ const Home = () => {
 
 
   return (
-    <section className='homepage w-full pt-10 lg:pt-28 px-10 grid grid-cols-1 grid-rows-3 lg:grid-cols-6 lg:grid-rows-1 gap-16'>
+    <section className='homepage relative w-full pt-10 lg:pt-28 px-10 grid grid-cols-1 grid-rows-3 lg:grid-cols-6 lg:grid-rows-1 gap-16'>
+      <div className={`loader z-50 h-screen w-full flex flex-col items-center justify-center pb-28 lg:pb-10 bg-[#ffffff28] top-0 left-0 text-white ${load ? "fixed" : "hidden"}`}>
+        <img className='w-[80px] h-[80px]' src={loading} alt="" />
+        <p className='bg-[#0000001a] font-medium'>Wait for a moment 😊</p>
+      </div>
       {/* LEFT SECTION */}
       <div className="heading-container lg:col-span-2 text-[#dedede]">
         <h1 className='heading-txt text-[5rem] w-full leading-none tracking-tighter'>Talk in Pixels Not in Words.</h1>
