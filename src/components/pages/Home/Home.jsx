@@ -46,8 +46,8 @@ const Home = () => {
   }
 
   const submitHandler = async (data) => {
-    if(!img || !data.text){
-      alert("Image or Message is missing!");
+    if(!img || data.text.trim() === ""){
+      alert("Image is missing!");
       return;
     }
     setLoad(true);
@@ -131,7 +131,7 @@ const Home = () => {
 
           </div>
 
-          <textarea id='text-area' {...register('text', { required: true })} className='w-full bg-[#0000002c] backdrop-blur-lg border-b-2 border-zinc-500 outline-none p-3 resize-none rounded-[5px_5px_0px_0px] text-[#dedede]' rows={5} placeholder='Write your message🤫 / key🔑 here!' autoFocus></textarea>
+          <textarea id='text-area' {...register('text', { required: true })} className='w-full bg-[#0000002c] backdrop-blur-lg border-b-2 border-zinc-500 outline-none p-3 resize-none rounded-[5px_5px_0px_0px] text-[#dedede]' rows={5} placeholder='Write your message🤫 / key🔑 here!' autoFocus required></textarea>
 
           <div className="actions mt-5 flex lg:block">
             <button onClick={() => (actionRef.current = 'decrypt')} type='submit' className='py-2.5 w-[10rem] rounded-lg bg-[#b3b3b3] shadow-2xl shadow-[#8a8a8a] font-medium text-black mr-3'>Retrieve Message</button>
