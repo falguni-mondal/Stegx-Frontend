@@ -46,6 +46,10 @@ const Home = () => {
   }
 
   const submitHandler = async (data) => {
+    if(!img || !data.text){
+      alert("Image or Message is missing!");
+      return;
+    }
     setLoad(true);
     const formData = new FormData();
 
