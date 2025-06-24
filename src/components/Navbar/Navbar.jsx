@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
-        <header className='w-full hidden lg:flex justify-center fixed top-0 left-0 pt-6'>
+        <header className='w-full hidden lg:flex justify-center fixed top-0 left-0 pt-6 z-[100]'>
             <div className="header-content flex justify-between w-1/2 px-10 py-2 bg-[#c4c4c438] backdrop-blur-md rounded-full">
                 <div className="logo">
                     <svg xmlns="http://www.w3.org/2000/svg" width="80" viewBox="0 0 509 150" fill="none">
@@ -24,10 +25,10 @@ const Navbar = () => {
                     </svg>
                 </div>
                 <nav className='flex neue-txt justify-center items-center gap-10 text-white text-[0.9rem] tracking-tight'>
-                    <h5 className='cursor-pointer hover:text-zinc-300 transition-all duration-300'>Home</h5>
-                    <h5 className='cursor-pointer hover:text-zinc-300 transition-all duration-300'>Project</h5>
-                    <h5 className='cursor-pointer hover:text-zinc-300 transition-all duration-300'>Connect</h5>
-                    <h5 className='cursor-pointer hover:text-zinc-300 transition-all duration-300'>Feedback</h5>
+                    <Link to="/" className='cursor-pointer block hover:text-zinc-300 transition-all duration-300'>Home</Link>
+                    <Link to="/about" className='cursor-pointer block hover:text-zinc-300 transition-all duration-300'>Project</Link>
+                    <a href="mailto:stegx@gmail.com?subject=This is the subject&body=This is the body" target='_blank' className='cursor-pointer block hover:text-zinc-300 transition-all duration-300'>Connect</a>
+                    <a href="https://github.com/falguni-mondal/Stegx" target='_blank' className='cursor-pointer block hover:text-zinc-300 transition-all duration-300'>GitHub</a>
                 </nav>
             </div>
         </header>

@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @font-face {
   font-family: Helvetica_regular;
   src: url("/src/assets/fonts/HelveticaNowDisplay-Regular.woff2");
@@ -12,35 +11,53 @@
   src: url("/src/assets/fonts/NeueMachina-Regular.ttf");
 }
 
-
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-html, body{
+*::-webkit-scrollbar{
+  background: transparent;
+  width: 0.7rem;
+}
+*::-webkit-scrollbar-thumb{
+  background: #aa71ff34;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+html,
+body {
   width: 100%;
   height: 100%;
 }
-.main-container{
-  background-image: url('/src/assets/bg/abstract-bg-m1.jpg');
+.main-container {
+  background-image: url("/src/assets/bg/abstract-bg-m1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
-header{
+header {
   pointer-events: none;
 }
-.header-content{
+.header-content {
   pointer-events: all;
 }
-.heading-txt{
+.heading-txt {
   font-family: "Italiana", sans-serif;
 }
-.neue-txt{
+.neue-txt {
   font-family: "NeueMachina_regular";
 }
-.whiteglow-hover:hover{
-  box-shadow: rgba(255, 255, 255, 0.199) 0px 7px 29px 0px;
-  transition: all 0.5s ease; 
+.font-helv{
+  font-family: "Helvetica_regular";
 }
+.whiteglow-hover:hover {
+  box-shadow: rgba(255, 255, 255, 0.199) 0px 7px 29px 0px;
+  transition: all 0.5s ease;
+}
+/* .gradient-heading {
+  background: linear-gradient(180deg, #af01ff, #2cbcff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+} */
