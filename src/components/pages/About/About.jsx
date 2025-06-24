@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import Section from './Section'
 import { IoIosLink } from "react-icons/io";
+import { IoMailOutline } from "react-icons/io5";
+
 
 const About = () => {
 
@@ -397,11 +399,18 @@ const About = () => {
                             <IoIosLink />
                             <span className='text-blue-700'>github.com/falguni-mondal/Stegx</span>
                         </a>
-                        <h2 className='font-bold tracking-wide mt-3 mb-1'>👉 Try Out the Live Web App :</h2>
+                        <h2
+                            className='font-bold tracking-wide mt-3 mb-1'>👉 Try Out the Live Web App :</h2>
                         <Link className="link flex items-center gap-1" to='/'>
                             <IoIosLink />
                             <span className='text-blue-700'>stegx.netlify.app</span>
                         </Link>
+                        <h2
+                            className='font-bold tracking-wide mt-3 mb-1'>👉 Connect with us :</h2>
+                        <a className="link flex items-center gap-1" href="mailto:connect.stegx@gmail.com?subject=Amazed by Stegx&body=From Stegx Webapp" target='_blank'>
+                            <IoMailOutline />
+                            <span className='text-blue-700'>connect.stegx@gmail.com</span>
+                        </a>
                         <br />
                         Feel free to explore, test, and contribute responsibly!
                     </p>
