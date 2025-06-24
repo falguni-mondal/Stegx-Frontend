@@ -27,7 +27,7 @@ const Navbar = () => {
                 <nav className='flex neue-txt justify-center items-center gap-10 text-white text-[0.9rem] tracking-tight'>
                     <Link to="/" className='cursor-pointer block hover:text-zinc-300 transition-all duration-300'>Home</Link>
                     <Link to="/about" className='cursor-pointer block hover:text-zinc-300 transition-all duration-300'>Project</Link>
-                    <a href="mailto:stegx@gmail.com?subject=Amazed by Stegx&body=From Stegx Webapp" target='_blank' className='cursor-pointer block hover:text-zinc-300 transition-all duration-300'>Connect</a>
+                    <a href="mailto:connect.stegx@gmail.com?subject=Amazed by Stegx&body=From Stegx Webapp" target='_blank' className='cursor-pointer block hover:text-zinc-300 transition-all duration-300'>Connect</a>
                     <a href="https://github.com/falguni-mondal/Stegx" target='_blank' className='cursor-pointer block hover:text-zinc-300 transition-all duration-300'>GitHub</a>
                 </nav>
             </div>
