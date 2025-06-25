@@ -53,7 +53,7 @@ const About = () => {
                         <br /><br />
                         <h2 className='heading-2nd mb-3 font-bold tracking-wide'>🚫 Difficult to Brute-Force</h2>
                         <span className='inline-block lg:pl-7'>
-                            With a breaking complexity greater than <span className='text-[#d7d5da] text-[1.25rem]'>429,49,67,29,83,66 (4.2 bilion)</span>, Stegx is not vulnerable to common brute-force or dictionary attacks. Without the exact encryption parameters and key, decryption is computationally infeasible—even for attackers who suspect something is hidden.
+                            With a breaking complexity greater than <span className='text-[#d7d5da] text-[1.25rem]'>429,49,67,29,83,66 (42.9 billion)</span>, Stegx is not vulnerable to common brute-force or dictionary attacks. Without the exact encryption parameters and key, decryption is computationally infeasible—even for attackers who suspect something is hidden.
                         </span>
                         <br /><br />
                         <h2 className='heading-2nd mb-3 font-bold tracking-wide'>🌐 100% Web-Based, No Installation</h2>
@@ -156,7 +156,7 @@ const About = () => {
                             </li>
                             <li className="mb-5">
                                 <h3 className='mb-2 font-bold tracking-wide'>High Brute-Force Complexity :</h3>
-                                <p>With a breaking complexity exceeding <span className='text-[1.25rem]'>429,49,67,29,83,66 (4.2 bilion)</span>, the system is resistant to brute-force attacks. The key space is large and randomized, making exhaustive search methods computationally infeasible.</p>
+                                <p>With a breaking complexity exceeding <span className='text-[1.25rem]'>429,49,67,29,83,66 (42.9 billion)</span>, the system is resistant to brute-force attacks. The key space is large and randomized, making exhaustive search methods computationally infeasible.</p>
                             </li>
                             <li className="mb-5">
                                 <h3 className='mb-2 font-bold tracking-wide'>Obfuscation of Parameters :</h3>
